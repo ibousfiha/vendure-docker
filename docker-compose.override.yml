@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      target: server_dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app/
+      - /usr/src/app/node_modules/
+    environment:
+      - DB_HOST=database
+
+volumes:
+  node_modules:

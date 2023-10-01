@@ -1,0 +1,7 @@
+node_modules
+dist
+static/assets
+static/email/test-emails
+
+db_synced.flag
+.env.local

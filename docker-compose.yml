@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  server:
+    environment:
+      - DB_SYNCHRONIZE=${DB_SYNCHRONIZE:-false}
+    depends_on:
+      - database
+
+  database:
+    image: postgres:15-alpine
+    ports:
+      - target: 5432
+        published: 5432
+        protocol: tcp
+    environment:
+      - POSTGRES_DB=${DB_NAME:-vendure}
+      # You should definitely change the password in production
+      - POSTGRES_USER=${DB_USERNAME:-vendure}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-vendure}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

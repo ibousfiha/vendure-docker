@@ -1,0 +1,4 @@
+*docker*
+Dockerfile
+node_modules
+dist
