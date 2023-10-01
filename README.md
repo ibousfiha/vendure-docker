@@ -10,29 +10,45 @@ Clone this repository and navigate to the project folder.
 
 The `Makefile` includes a set of commands designed to simplify the build and deployment process. Below are explanations for the key commands:
 
-### `make up`
+### Up
 
-Starts the database and server containers. If `db_synced.flag` doesn't exist, it sets the `DB_SYNCHRONIZE` flag to `true`.
+Starts up the necessary services for development, including the database and server. If the database is not already synchronized, it will be.
 
-### `make down`
+```bash
+make up
+```
 
-Stops all running containers and removes unused volumes.
+### Down
 
-### `make restart`
+Stops all running services and cleans up Docker assets.
 
-Restarts all containers by running `make down` followed by `make up`.
+```bash
+make down
+```
 
-### `make deploy`
+### Restart
 
-Sets the environment to production and builds the project, including the database and server containers.
+Restarts all services. This is equivalent to running `make down` followed by `make up`.
 
-### `make reset-db`
+```bash
+make restart
+```
 
-Removes the existing database volume, effectively resetting the database.
+### Deploy
 
-These commands help you manage your Docker containers effectively and deploy your Vendure project seamlessly.
+Deploys the application in a production environment. This will use production settings and services as defined in your configuration.
 
-Certainly, you can include a section in your README that directs users to the official Vendure documentation for further details.
+```bash
+make deploy
+```
+
+### Reset-DB
+
+Resets the database by removing its Docker volume. Use this if you need to start with a fresh database.
+
+```bash
+make reset-db
+```
 
 ## Vendure Development
 
