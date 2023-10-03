@@ -10,7 +10,8 @@ Clone this repository and navigate to the project folder.
 
 The `Makefile` includes a set of commands designed to simplify the build and deployment process. Below are explanations for the key commands:
 
-### Up
+### For dev environment
+#### Up
 
 Starts up the necessary services for development, including the database and server. If the database is not already synchronized, it will be.
 
@@ -18,7 +19,7 @@ Starts up the necessary services for development, including the database and ser
 make up
 ```
 
-### Down
+#### Down
 
 Stops all running services and cleans up Docker assets.
 
@@ -26,7 +27,7 @@ Stops all running services and cleans up Docker assets.
 make down
 ```
 
-### Restart
+#### Restart
 
 Restarts all services. This is equivalent to running `make down` followed by `make up`.
 
@@ -34,20 +35,22 @@ Restarts all services. This is equivalent to running `make down` followed by `ma
 make restart
 ```
 
-### Deploy
-
-Deploys the application in a production environment. This will use production settings and services as defined in your configuration.
-
-```bash
-make deploy
-```
-
-### Reset-DB
+#### Reset-DB
 
 Resets the database by removing its Docker volume. Use this if you need to start with a fresh database.
 
 ```bash
 make reset-db
+```
+
+### For prod environment
+
+#### Deploy
+
+Deploys the application in a production environment. This will use production settings and services as defined in your configuration.
+
+```bash
+make deploy
 ```
 
 ## Vendure Development
